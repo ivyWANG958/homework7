@@ -17,6 +17,9 @@ var b = {
 
 // Mapping of step names to colors.
 // 定义页面对应的颜色值
+
+
+
 var colors = {
     // "home": "#5687d1",
     // "product": "#7b615c",
@@ -24,16 +27,16 @@ var colors = {
     // "account": "#6ab975",
     // "other": "#a173d1",
     // "end": "#bbbbbb"
-    "Support": "#e6e6ff",
-    "Affairs": "#ccccff",
-    "Economic": "#9999ff",
-    "Education": "#6666ff",
-    "Environment": "#4d4dff",
-    "Health": "#3333ff",
-    "Housing": "#1a1aff",
-    "Infrastructure": "#0000ff",
-    "Security": "#0000e6",
-    "Welfare": "#0000b3"
+    "Support": "#1f77b4",
+    "Affairs": "#ff7f0e",
+    "Economic": "#2ca02c",
+    "Education": "#9467bd",
+    "Environment": "#8c564b",
+    "Health": "#e377c2",
+    "Housing": "#7f7f7f",
+    "Infrastructure": "#bcbd22",
+    "Security": "#17becf",
+    "Welfare": "#d62728"
 
 
 };
@@ -42,7 +45,9 @@ var colors = {
 // 总的节点数目
 var totalSize = 0;
 // 定义svg画布
-var vis = d3.select("#chart").append("svg:svg")
+var vis = d3
+    .select("#chart")
+    .append("svg:svg")
     // 设置画布的宽度
     .attr("width", width)
     // 设置画布的高度
@@ -144,7 +149,7 @@ function createVisualization(json) {
         .enter().append("svg:path")
         .attr("display", function(d) { return d.depth ? null : "none"; })
         .attr("d", arc)
-        .attr("fill-rule", "evenodd")
+        .attr("fill", "grey")
         .style("fill", function(d) { return colors[d.data.name]; })
         .style("opacity", 1)
         .on("mouseover", mouseover);
